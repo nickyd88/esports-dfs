@@ -163,7 +163,7 @@ def GetData():
 
 def GetLECLCS():
     df_all = GetData()
-    return df_all[~df_all["league"].isin(['LCS', 'LEC'])]
+    return df_all[df_all["league"].isin(['LCS', 'LEC'])]
 
 def GetRecent():
     return pd.read_csv('data/last_two_splits_LEC_LCS.csv')
