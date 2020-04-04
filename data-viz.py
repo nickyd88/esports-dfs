@@ -1,6 +1,7 @@
 
 import pandas as pd
 import plotly.express as px
+import plotly
 
 
 df2017 = pd.read_csv("data/2017_all_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
@@ -92,6 +93,8 @@ fig.update_layout(
 )
 
 fig.show()
+
+plotly.offline.plot(fig, filename = 'index.html', auto_open=False)
 
 
 
