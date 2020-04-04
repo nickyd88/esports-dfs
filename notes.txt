@@ -1,4 +1,6 @@
 
+Data from https://oracleselixir.com/match-data/
+
 Quantum Sports Blog post on predicting League of Legends games:
 https://www.quantumsportssolutions.com/blogs/league-of-legends/a-predictive-model-of-league-of-legends-game-outcomes
 
@@ -6,4 +8,5 @@ Weightings:
 0.3x * last split stats (times # games last split)
 5x * average results (5 average games)
 1x * current season stats (times # games so far this season)
+
 

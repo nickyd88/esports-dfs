@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import scipy as sci
 import statsmodels.api as sm # import statsmodels
+import pickle
 
 
 df2017 = pd.read_csv("data/2017_all_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
