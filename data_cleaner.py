@@ -51,6 +51,8 @@ df_all['fpts'] = fpts
 
 #df_all.to_csv('data/df_all.csv', index=False)
 
+
+
 def GetData():
     datatypes ={
         'gameid': str,
@@ -163,3 +165,18 @@ def GetLECLCS():
     df_all = GetData()
     return df_all[~df_all["league"].isin(['LCS', 'LEC'])]
 
+def GetRecent():
+    return pd.read_csv('data/last_two_splits_LEC_LCS.csv')
+
+
+
+
+df = GetLECLCS()
+
+cursplit = '2020-1'
+lastsplit = '2019-2'
+
+recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
+recent = recent[['league', 'split', 'date', 'week', 'side', 'position', 'player', 'team', 'gamelength',
+                 'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
+recent.to_csv('data/last_two_splits_LEC_LCS.csv', index=False)

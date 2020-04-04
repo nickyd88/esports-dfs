@@ -10,3 +10,50 @@ Weightings:
 1x * current season stats (times # games so far this season)
 
 
+
+TODO
+
+## MVP WILL NOT INCLUDE GAME LENGTH PREDICTIONS ##
+
+1) CREATE AVG FPTS PER POSITION BY WIN OR LOSS
+
+func (pos, win) -> avg points
+use all last 2 season data
+
+
+2) CREATE PLAYER AVG POINTS IN WIN AND LOSS
+
+func (player, win) -> avg points
+
+3) CREATE TEAM AVG POINTS ALLOWED
+
+func (team, opponent pos, win) -> avg points
+
+4) COMBINE TO CREATE PLAYER POINTS EXPECTED IN A MATHCUP GIVEN WIN/LOSS
+func (player, opp team, win) -> avg points
+
+
+
+
+
+
+
+
+
+
+
+FUTURE IMPROVEMENTS: Expected Game Length
+
+Need function (TeamA, TeamB, OddsTeamAWins)
+to output (Expected Game Length)
+
+HOW:
+avg = Avg length of game
+aw = Avg length of TeamA Wins above overall avg
+bl = Avg length of TeamB Loss above overall avg
+al = Avg length of TeamA Loss above overall avg
+bw = Avg length of TeamB Win above overall avg
+
+fun(TeamA, TeamB, OddsAWin)
+return (avg + OddsAWin*(aw + bl) + (1 - OddsAWin)*(al + bw)
+

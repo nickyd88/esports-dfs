@@ -1,6 +1,5 @@
-from data_cleaner import GetData, GetLECLCS
+from data_cleaner import GetData, GetLECLCS, GetRecent
 
-df = GetLECLCS()
+df = GetRecent()
 
 print(df.head())
-
