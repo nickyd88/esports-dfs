@@ -15,6 +15,12 @@ TODO
 
 ## MVP WILL NOT INCLUDE GAME LENGTH PREDICTIONS ##
 
+For all predictions, use weights:
++ Current season at 1.0x per game
++ Prev season at 0.3x per game
++ and 5 "Avg" games
+
+
 1) CREATE AVG FPTS PER POSITION BY WIN OR LOSS
 
 func (pos, win) -> avg points
