@@ -15,17 +15,12 @@ raw_avg = GetRawAvgsDF(df)
 df['weight'] = df['iscurrent'].apply(lambda x: 1.0 if x == 1 else 0.3)
 
 
-# Define a lambda function to compute the weighted mean:
-wm = lambda x: np.average(x, weights=df.loc[x.index, "weight"])
+# calculated weighted means -- confirmed via excel this function works
+test = df.groupby(['player', 'result']).apply(lambda dfx: (dfx["fpts"] * dfx["weight"]).sum() / dfx["weight"].sum())
 
-# Define a dictionary with the functions to apply for a given column:
-#f = {'iscurrent': ['count'], 'fpts': [{'weighted_mean' : wm}]}
+## STILL NEED TO ADD 5 ROWS FROM
 
-# Groupby and aggregate with your dictionary:
-#player = df.groupby(["player", "result"]).agg(f)
+print(test.head())
 
-
-
-#print(player.head())
 
 
