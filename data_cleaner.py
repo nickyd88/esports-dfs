@@ -170,7 +170,7 @@ def GetRecent():
 
 
 
-
+#Load & calls a data cleaner function to clean LEC (euro) and LCS (NA) data
 df = GetLECLCS()
 
 cursplit = '2020-1'
