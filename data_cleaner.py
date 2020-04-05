@@ -174,7 +174,6 @@ def GetRecent():
 
     # define what the opponent side was
     teams['oppside'] = np.where(teams['side'] == 'Red', 'Blue', 'Red')
-    print(teams.head(10))
 
     # call the team opponent team
     teams.rename(columns={'team':'opp_team'}, inplace=True)
@@ -183,8 +182,6 @@ def GetRecent():
     #makes join simpler and has correct column names already
     teams.drop(columns=['side'], inplace=True)
     teams.rename(columns={'oppside': 'side'}, inplace=True)
-
-    print(teams.head(10))
 
     df = pd.merge(df,
                 teams,
