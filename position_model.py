@@ -3,18 +3,17 @@ import numpy as np
 from agg_functions import GetRawAvgsDF, GetWeightedFptAverages, GetWeightSums
 import pandas as pd
 
-df = GetAllRecent()
 
-curseason = '2020-1'
-df['iscurrent'] = df['split'].apply(lambda x: 1 if x.startswith(curseason) else 0)
-
-#raw_avg = GetRawAvgsDF(df, ['position', 'result'])
-
-#apply weights to real games
-df['season_weight'] = df['iscurrent'].apply(lambda x: 1.0 if x == 1 else 0.3)
 
 def CreateExpectedValueFunctionByCol(col, df):
+
     averageWeightVal = 2.5 # should be 5 except we're looking @ wins & losses separately
+
+    # This is hardcoded for now in here
+    curseason = '2020-1'
+    df['iscurrent'] = df['split'].apply(lambda x: 1 if x.startswith(curseason) else 0)
+    df['season_weight'] = df['iscurrent'].apply(lambda x: 1.0 if x == 1 else 0.3)
+
     df['position_weight'] = 1
     pos_avg_weights = GetWeightedFptAverages(df, ['position', 'result'], 'position_weight')
     grouping_avg_weights = GetWeightedFptAverages(df, [col, 'position', 'result'], 'season_weight')
@@ -27,10 +26,14 @@ def CreateExpectedValueFunctionByCol(col, df):
         grouping_season_weight_sum[col_val, position,result] * grouping_avg_weights[col_val, position,result]) /\
         (averageWeightVal+grouping_season_weight_sum[col_val, position,result])
 
-getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
-getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
-print(getEVByOpTeam('100 Thieves', 'Middle', 0))
+
+#df = GetAllRecent()
+
+#getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
+#getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
+
+#print(getEVByOpTeam('100 Thieves', 'Middle', 0))
 
 
 # # calculated weighted means -- confirmed via excel this function works

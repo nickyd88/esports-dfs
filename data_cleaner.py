@@ -1,5 +1,6 @@
 import numpy as np
 import pandas as pd
+import math
 import pickle
 
 # Read & clean historic data & add fantasy points
@@ -43,13 +44,23 @@ df_all['cs'] = cs
 
 fpts = []
 for index, row in df_all.iterrows():
+    if math.isnan(row.cs):
+        if row.position == 'Support':
+            cs = 50
+        else:
+            cs = 300
+    else:
+        cs = row.cs
     if row.position == 'Team':
         fpts.append(row.teamtowerkills + 3*row.teambaronkills + 2*row.teamdragkills + 2*row.fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
     else:
-        fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*row.cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
+        fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
 df_all['fpts'] = fpts
 
 #df_all.to_csv('data/df_all.csv', index=False)
+
+
+
 
 
 

@@ -42,7 +42,11 @@ func (player, opp team, win) -> avg points
 
 
 
+IMPORTANT FEATURES:
 
+1) Starting Lineups Scrape (https://www.rotowire.com/daily/esports/lol-lineups.php)
+
+2) Tool to show predicted performance given X team wins matchup of XvY for manual lineup building
 
 
 
