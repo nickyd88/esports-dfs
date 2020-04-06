@@ -165,7 +165,33 @@ def GetLECLCS():
     df_all = GetData()
     return df_all[df_all["league"].isin(['LCS', 'LEC'])]
 
-def GetRecent():
+def GetAllRecent():
+
+    df = pd.read_csv('data/last_two_splits_all.csv')
+    df['side'] = df['side'].astype(str)
+
+    #filter for 1 row per team per game
+    teams = df[df['position'] == 'Team'][['gameid', 'date', 'team', 'side']]
+
+    # define what the opponent side was
+    teams['oppside'] = np.where(teams['side'] == 'Red', 'Blue', 'Red')
+
+    # call the team opponent team
+    teams.rename(columns={'team':'opp_team'}, inplace=True)
+
+    #drop side and rename oppside as side for joininging back on existing dataframe
+    #makes join simpler and has correct column names already
+    teams.drop(columns=['side'], inplace=True)
+    teams.rename(columns={'oppside': 'side'}, inplace=True)
+
+    df = pd.merge(df,
+                teams,
+                on=['gameid', 'date', 'side'],
+                how='inner')
+
+    return df
+
+def GetRecentLECLCS():
     df = pd.read_csv('data/last_two_splits_LEC_LCS.csv')
     df['side'] = df['side'].astype(str)
 
@@ -201,4 +227,15 @@ lastsplit = '2019-2'
 recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
 recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
-recent.to_csv('data/last_two_splits_LEC_LCS.csv', index=False)
+#recent.to_csv('data/last_two_splits_LEC_LCS.csv', index=False)
+
+#Load & calls a data cleaner function to clean all league data
+df = GetData()
+
+cursplit = '2020-1'
+lastsplit = '2019-2'
+
+recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
+recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
+                 'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
+recent.to_csv('data/last_two_splits_all.csv', index=False)

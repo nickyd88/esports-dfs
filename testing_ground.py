@@ -4,9 +4,9 @@ import numpy as np
 import scipy as sci
 import statsmodels.api as sm # import statsmodels
 import pickle
-from data_cleaner import GetRecent
+from data_cleaner import GetRecentLECLCS
 
-df_all = GetRecent()
+df_all = GetRecentLECLCS()
 
 print(df_all[['player', 'team', 'opp_team']].head(20))
 

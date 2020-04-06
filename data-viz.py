@@ -1,6 +1,7 @@
 
 import pandas as pd
 import plotly.express as px
+import plotly.graph_objects as go
 import plotly
 
 
@@ -57,13 +58,12 @@ df_all['fpts'] = fpts
 pos = df_all.groupby(['position', 'result']).mean()[['k', 'd', 'a', 'cs', 'fpts']]
 
 print(pos)
-fig_df = df_all[['gamelength', 'position', 'fpts', 'result']].dropna()
+fig_df = df_all[['gamelength', 'position', 'fpts', 'result', 'player']].dropna()
 fig_df['Result'] = fig_df['result'].apply(lambda x: 'Win' if x == 1 else 'Loss')
 print(fig_df.head())
 
 colorsIdx = {'Win': 'rgb(50, 168, 82)', 'Loss': 'rgb(245, 88, 104)'}
 colors = fig_df['Result'].map(colorsIdx)
-
 
 fig = px.scatter(
     fig_df,
@@ -89,7 +89,7 @@ fig.update_layout(
     title_text="Fantasy Points vs. Game Length by Position & Result",
     title_font_size=24,
     xaxis_title="Game Length",
-    yaxis_title='Fantasy Points (DK)'
+    yaxis_title='Fantasy Points (DK)',
 )
 
 fig.show()
