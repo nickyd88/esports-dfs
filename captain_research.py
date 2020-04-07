@@ -38,5 +38,5 @@ fig.update_layout(
 fig.show()
 
 
-plotly.offline.plot(fig, filename ='web_top_scorers/index.html', auto_open=False)
+plotly.offline.plot(fig, filename ='top_scorers/index.html', auto_open=False)
 
