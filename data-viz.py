@@ -94,7 +94,7 @@ fig.update_layout(
 
 fig.show()
 
-plotly.offline.plot(fig, filename = 'index.html', auto_open=False)
+plotly.offline.plot(fig, filename ='web_point_distributions/index.html', auto_open=False)
 
 
 

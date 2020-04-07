@@ -51,6 +51,13 @@ IMPORTANT FEATURES:
 
 
 
+GitHub Pages Notes:
+inside <head> :
+        <title>Title</title>
+		<!-- link to main stylesheet -->
+		<link rel="stylesheet" type="text/css" href="/css/main.css">
+
+
 
 FUTURE IMPROVEMENTS: Expected Game Length
 

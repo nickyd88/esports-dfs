@@ -12,54 +12,54 @@ import pickle
 dfpre = pd.read_csv("data/df_all_pre2020.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 df2020a = pd.read_csv("data/2020_spring_current0319.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 
-df_all = pd.concat([dfpre, df2020a], sort=False)
-
-numeric_cols = [
-    'k',
-    'a',
-    'd',
-    'minionkills',
-    'monsterkills',
-    'monsterkillsownjungle',
-    'monsterkillsenemyjungle',
-    'totalgold',
-    'teamtowerkills',
-    'opptowerkills',
-    'teambaronkills',
-    'oppbaronkills',
-    'teamdragkills',
-    'oppdragkills',
-    'gamelength',
-    'date',
-    'result',
-    'fb' #first blood yes/no
-]
-
-df_all[numeric_cols] = df_all[numeric_cols].apply(pd.to_numeric, errors='coerce')
-
-cs = []
-for index, row in df_all.iterrows():
-    cs.append(row.minionkills + row.monsterkills + row.monsterkillsownjungle + row.monsterkillsenemyjungle)
-df_all['cs'] = cs
-
-fpts = []
-for index, row in df_all.iterrows():
-    if math.isnan(row.cs):
-        if row.position == 'Support':
-            cs = 50
-        else:
-            cs = 300
-    else:
-        cs = row.cs
-    if row.position == 'Team':
-        fpts.append(row.teamtowerkills + 3*row.teambaronkills + 2*row.teamdragkills + 2*row.fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
-    else:
-        fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
-df_all['fpts'] = fpts
-
-#df_all.to_csv('data/df_all.csv', index=False)
-
-
+# df_all = pd.concat([dfpre, df2020a], sort=False)
+#
+# numeric_cols = [
+#     'k',
+#     'a',
+#     'd',
+#     'minionkills',
+#     'monsterkills',
+#     'monsterkillsownjungle',
+#     'monsterkillsenemyjungle',
+#     'totalgold',
+#     'teamtowerkills',
+#     'opptowerkills',
+#     'teambaronkills',
+#     'oppbaronkills',
+#     'teamdragkills',
+#     'oppdragkills',
+#     'gamelength',
+#     'date',
+#     'result',
+#     'fb' #first blood yes/no
+# ]
+#
+# df_all[numeric_cols] = df_all[numeric_cols].apply(pd.to_numeric, errors='coerce')
+#
+# cs = []
+# for index, row in df_all.iterrows():
+#     cs.append(row.minionkills + row.monsterkills + row.monsterkillsownjungle + row.monsterkillsenemyjungle)
+# df_all['cs'] = cs
+#
+# fpts = []
+# for index, row in df_all.iterrows():
+#     if math.isnan(row.cs):
+#         if row.position == 'Support':
+#             cs = 50
+#         else:
+#             cs = 300
+#     else:
+#         cs = row.cs
+#     if row.position == 'Team':
+#         fpts.append(row.teamtowerkills + 3*row.teambaronkills + 2*row.teamdragkills + 2*row.fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
+#     else:
+#         fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
+# df_all['fpts'] = fpts
+#
+# #df_all.to_csv('data/df_all.csv', index=False)
+#
+#
 
 
 
@@ -228,25 +228,25 @@ def GetRecentLECLCS():
     return df
 
 
-
-#Load & calls a data cleaner function to clean LEC (euro) and LCS (NA) data
-df = GetLECLCS()
-
-cursplit = '2020-1'
-lastsplit = '2019-2'
-
-recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
-recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
-                 'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
-#recent.to_csv('data/last_two_splits_LEC_LCS.csv', index=False)
-
-#Load & calls a data cleaner function to clean all league data
-df = GetData()
-
-cursplit = '2020-1'
-lastsplit = '2019-2'
-
-recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
-recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
-                 'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
-recent.to_csv('data/last_two_splits_all.csv', index=False)
+#
+# #Load & calls a data cleaner function to clean LEC (euro) and LCS (NA) data
+# df = GetLECLCS()
+#
+# cursplit = '2020-1'
+# lastsplit = '2019-2'
+#
+# recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
+# recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
+#                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
+# #recent.to_csv('data/last_two_splits_LEC_LCS.csv', index=False)
+#
+# #Load & calls a data cleaner function to clean all league data
+# df = GetData()
+#
+# cursplit = '2020-1'
+# lastsplit = '2019-2'
+#
+# recent = df[(df['split'].str.startswith(cursplit) | df['split'].str.startswith(lastsplit))]
+# recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
+#                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
+# recent.to_csv('data/last_two_splits_all.csv', index=False)
