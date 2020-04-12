@@ -41,8 +41,8 @@ for index, row in df.iterrows():
     team = row['team']
 
     try:
-        win = getEVByPlayer(player, position, league, 1) - avg_w    #+ getEVByOpTeam(opp, league, position, 1)
-        loss = getEVByPlayer(player, position, league, 0) - avg_l  #+ getEVByOpTeam(opp, league, position, 0)
+        win = getEVByPlayer(player, position, league, 1) #+ getEVByOpTeam(opp, league, position, 1)  - avg_w
+        loss = getEVByPlayer(player, position, league, 0) #+ getEVByOpTeam(opp, league, position, 0) - avg_l
     except KeyError:
         win = 0
         loss = 0
@@ -153,12 +153,13 @@ for league in leagues:
 fig.update_layout(
     title= 'Average Points Given up in Losses to Opposing Positions<br>With Team Avgs by League',
     title_font_size=24,
-    height=1600
+    height=1600,
+    showlegend=False
 )
 fig.update_yaxes(range=[20, 40])
 
 fig.show()
-#plotly.offline.plot(fig, filename ='pace/index.html', auto_open=False)
+plotly.offline.plot(fig, filename ='pace/index.html', auto_open=False)
 
 
 
@@ -177,7 +178,7 @@ for i in range(0, len(avg_perf[0])):
             plotly_players.append([row[i]])
 
 
-norm = matplotlib.colors.Normalize(vmin=-5, vmax=5, clip=True)
+norm = matplotlib.colors.Normalize(vmin=20, vmax=40, clip=True)
 mapper = cm.ScalarMappable(norm=norm, cmap=cm.get_cmap('RdYlGn'))
 
 colors = []
