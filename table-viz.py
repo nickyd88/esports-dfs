@@ -205,7 +205,7 @@ fig = go.Figure(data=[go.Table(
     )
 ])
 fig.update_layout(
-    title='Average Points In Win Above Position Average<br>Points Above Average By Position In Win',
+    title='Average Points In Win<br>Projected Points in Win vs. League Avg Team',
     title_font_size=24,
     width=1000
 )
