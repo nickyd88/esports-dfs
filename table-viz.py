@@ -25,19 +25,24 @@ leagues = ['LPL', 'LCS', 'LCK', 'LEC']
 
 df = df[df['league'].isin(leagues)]
 
-avg_perf = [['Player', 'Position', 'Team', 'Win', 'Loss']]
+avg_perf = [['Player', 'Position', 'Team', 'Points in Win', 'Points in Loss']]
 
+players = []
 for index, row in df.iterrows():
     position = row['position']
     league = row['league']
     player = row['player']
-    avg_w = pos_avg_weights[position, league, 1]
+    if player in players:
+        continue
+    else:
+        players.append(player)
+        avg_w = pos_avg_weights[position, league, 1]
     avg_l = pos_avg_weights[position, league, 0]
     team = row['team']
 
     try:
-        win = getEVByPlayer(player, position, league, 1)   #+ getEVByOpTeam(opp, league, position, 1) - avg_w
-        loss = getEVByPlayer(player, position, league, 0)   #+ getEVByOpTeam(opp, league, position, 0) - avg_l
+        win = getEVByPlayer(player, position, league, 1) - avg_w    #+ getEVByOpTeam(opp, league, position, 1)
+        loss = getEVByPlayer(player, position, league, 0) - avg_l  #+ getEVByOpTeam(opp, league, position, 0)
     except KeyError:
         win = 0
         loss = 0
@@ -50,6 +55,10 @@ avg_team_opp = [['Team', 'League', 'Top', 'Jungle', 'Middle', 'ADC', 'Support']]
 positions = ['Top', 'Jungle', 'Middle', 'ADC', 'Support', 'Team']
 
 
+
+
+## Team Data and Viz
+
 for i, row in teams.iterrows():
     team = i[0]
     league = i[1]
@@ -61,7 +70,7 @@ for i, row in teams.iterrows():
     avg_team_opp.append(newrow)
 
 
-sorted_players = avg_perf[0].extend(sorted(avg_perf[1:], key =lambda x: x[1]+x[0]))
+sorted_players = sorted(avg_perf[1:], key =lambda x: x[1]+x[0])
 
 sorted_teams = sorted(avg_team_opp[1:], key= lambda x: x[1]+x[0])
 
@@ -121,7 +130,6 @@ fig.add_trace(
 )
 
 for row in sorted_teams:
-    print(row)
     avg = round((row[2] + row[3] + row[4] + row[5] + row[6])/5, 1)
     row.append(avg)
 
@@ -148,8 +156,57 @@ fig.update_layout(
     height=1600
 )
 fig.update_yaxes(range=[20, 40])
+
 fig.show()
+#plotly.offline.plot(fig, filename ='pace/index.html', auto_open=False)
 
-plotly.offline.plot(fig, filename ='pace/index.html', auto_open=False)
 
 
+
+# Player Data & Viz
+
+#avg_perf[0] is header
+sorted_players = sorted(sorted_players, key= lambda x: x[2]+x[1]+x[0])
+
+plotly_players = []
+for i in range(0, len(avg_perf[0])):
+    for row in sorted_players:
+        try:
+            plotly_players[i].append(row[i])
+        except IndexError:
+            plotly_players.append([row[i]])
+
+
+norm = matplotlib.colors.Normalize(vmin=-5, vmax=5, clip=True)
+mapper = cm.ScalarMappable(norm=norm, cmap=cm.get_cmap('RdYlGn'))
+
+colors = []
+for col in plotly_players:
+    temp = []
+    for item in col:
+        if type(item) == str:
+            temp.append('rgb(239, 243, 255)')
+        else:
+            rgba = mapper.to_rgba(item, bytes=True)
+            rgb = 'rgb('+str(rgba[0])+','+str(rgba[1])+','+str(rgba[2])+')'
+            #print(mapper.to_rgba(item, bytes=True))
+            temp.append(rgb)
+    colors.append(temp)
+
+
+fig = go.Figure(data=[go.Table(
+        header=dict(values=avg_perf[0][0:4]),
+        cells=dict(
+            values= plotly_players[0:4],
+            line_color= colors[0:4],
+            fill_color= colors[0:4]
+         )
+    )
+])
+fig.update_layout(
+    title='Average Points In Win Above Position Average<br>Points Above Average By Position In Win',
+    title_font_size=24,
+    width=1000
+)
+fig.show()
+plotly.offline.plot(fig, filename ='player_performance/index.html', auto_open=False)
