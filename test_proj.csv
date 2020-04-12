@@ -1,54 +1,84 @@
-Player,Position,Team,Opponent,AvgIfWin,AvgIfLoss,Salary,Value,,,,,
-Cryin,Middle,eStar,JD Gaming,47.28,13.39,8000,5.91,,,,,
-Wink,ADC,eStar,JD Gaming,44.32,12.50,8200,5.40,,2.25,Dominus,Bilibili,1.57
-Wei,Jungle,eStar,JD Gaming,41.61,14.02,7400,5.62,,1.61,eStar,JD Gaming,2.20
-Xiao7,Top,Funplus Phoenix,LNG Esports,N/A,N/A,6600,,,,,,
-CJJ,Top,eStar,JD Gaming,N/A,N/A,6400,,,,,,
-Asura,ADC,LNG Esports,Funplus Phoenix,37.67,18.93,6600,5.71,,7.00,LNG,Funplus,1.10
-Doinb,Middle,Funplus Phoenix,LNG Esports,35.96,21.31,7800,4.61,,,,,
-Kanavi,Jungle,JD Gaming,eStar,35.70,21.18,6800,5.25,,,,,
-melody,Top,Dominus Esports,Bilibili Gaming,N/A,N/A,5800,,,,,,
-Maple,Middle,LNG Esports,Funplus Phoenix,35.44,17.90,6400,5.54,,,,,
-ShiauC,Support,eStar,JD Gaming,35.43,6.28,5600,6.33,,,,,
-Xiaowei,Middle,Dominus Esports,Bilibili Gaming,35.29,14.20,6800,5.19,,,,,
-Lwx,ADC,Funplus Phoenix,LNG Esports,34.87,21.18,8000,4.36,,,,,
-xiye,Middle,Dominus Esports,Bilibili Gaming,34.66,13.76,7000,4.95,,,,,
-mingjing,Jungle,Funplus Phoenix,LNG Esports,N/A,N/A,7000,,,,,,
-Flandre,Top,LNG Esports,Funplus Phoenix,34.03,13.90,5200,6.54,,,,,
-Xx,Jungle,LNG Esports,Funplus Phoenix,33.40,17.83,5800,5.76,,,,,
-LokeN,ADC,JD Gaming,eStar,32.99,19.33,7200,4.58,,,,,
-Bless,Jungle,Dominus Esports,Bilibili Gaming,N/A,N/A,6000,,,,,,
-Tian,Jungle,Funplus Phoenix,LNG Esports,32.63,20.45,7200,4.53,,,,,
-Xiaopeng,Jungle,Dominus Esports,Bilibili Gaming,32.27,12.02,6200,5.20,,,,,
-Duan,Support,LNG Esports,Funplus Phoenix,31.34,11.06,4000,7.83,,,,,
-Xiaobai,Top,eStar,JD Gaming,30.81,11.50,6600,4.67,,,,,
-Yagao,Middle,JD Gaming,eStar,30.62,21.25,6800,4.50,,,,,
-Khan,Top,Funplus Phoenix,LNG Esports,29.56,14.52,6800,4.35,,,,,
-Zoom,Top,JD Gaming,eStar,29.29,17.05,5400,5.42,,,,,
-GALA,ADC,Dominus Esports,Bilibili Gaming,29.20,11.54,7000,4.17,,,,,
-GimGoon,Top,Funplus Phoenix,LNG Esports,29.18,13.58,6600,4.42,,,,,
-rat,ADC,eStar,JD Gaming,N/A,N/A,8000,,,,,,
-Meteor,Jungle,Bilibili Gaming,Dominus Esports,29.06,14.98,6600,4.40,,,,,
-April,ADC,Funplus Phoenix,LNG Esports,N/A,N/A,7800,,,,,,
-FoFo,Middle,Bilibili Gaming,Dominus Esports,28.69,17.58,7400,3.88,,,,,
-Wings,ADC,Bilibili Gaming,Dominus Esports,N/A,N/A,7400,,,,,,
-Natural,Top,Dominus Esports,Bilibili Gaming,27.59,10.10,6000,4.60,,,,,
-LvMao,Support,JD Gaming,eStar,27.57,13.31,4800,5.74,,,,,
-705,Top,JD Gaming,eStar,26.67,14.40,5600,4.76,,,,,
-Light,ADC,LNG Esports,Funplus Phoenix,N/A,N/A,6400,,,,,,
-Crisp,Support,Funplus Phoenix,LNG Esports,26.58,13.13,5800,4.58,,,,,
-jinjiao,ADC,Bilibili Gaming,Dominus Esports,25.26,15.65,7600,3.32,,,,,
-Alu,Support,eStar,JD Gaming,N/A,N/A,5400,,,,,,
-Mark,Support,Dominus Esports,Bilibili Gaming,25.17,6.66,4400,5.72,,,,,
-Moonlight,Support,Bilibili Gaming,Dominus Esports,N/A,N/A,4800,,,,,,
-ADD,Top,Bilibili Gaming,Dominus Esports,24.99,11.44,6200,4.03,,,,,
-Peace,Support,JD Gaming,eStar,N/A,N/A,4600,,,,,,
-Kingen,Top,Bilibili Gaming,Dominus Esports,23.78,15.04,6000,3.96,,,,,
-XinMo,Support,Bilibili Gaming,Dominus Esports,21.64,10.28,5000,4.33,,,,,
-lwandy,Support,LNG Esports,Funplus Phoenix,N/A,N/A,3800,,,,,,
-Funplus Phoenix,Team,Funplus Phoenix,LNG Esports,N/A,N/A,5800,,,,,,
-eStar,Team,eStar,JD Gaming,N/A,N/A,5400,,,,,,
-Bilibili Gaming,Team,Bilibili Gaming,Dominus Esports,N/A,N/A,5200,,,,,,
-Dominus Esports,Team,Dominus Esports,Bilibili Gaming,N/A,N/A,4800,,,,,,
-JD Gaming,Team,JD Gaming,eStar,N/A,N/A,4600,,,,,,
-LNG Esports,Team,LNG Esports,Funplus Phoenix,N/A,N/A,4200,,,,,,
+Player,Position,Team,Opponent,AvgIfWin,AvgIfLoss,Salary
+Langx,Top,Royal Never Give Up,LGD Gaming,28.125613495225483,15.664695922041131,7200
+TheShy,Top,Invictus Gaming,JD Gaming,31.91097896754327,10.736257901961492,7000
+Canna,Top,SK Telecom T1,Sandbox Gaming,25.698193349355872,9.66830996502925,6800
+Roach,Top,SK Telecom T1,Sandbox Gaming,25.226189072259746,12.800651915765163,6600
+Jinoo,Top,Edward Gaming,LNG Esports,30.441446915990657,10.085716698557297,6400
+xiaoxiang,Top,Edward Gaming,LNG Esports,27.93327853117596,8.585374914207277,6400
+Kiin,Top,Afreeca Freecs,Griffin,24.351380118198808,10.01283819558356,6200
+Flandre,Top,LNG Esports,Edward Gaming,27.615898119256858,13.488417223420262,5800
+Zoom,Top,JD Gaming,Invictus Gaming,30.766720152068867,17.148981786852417,5600
+Summit,Top,Sandbox Gaming,SK Telecom T1,23.8522849761295,11.927484728011242,5400
+705,Top,JD Gaming,Invictus Gaming,28.14172967264083,14.497265672378921,5400
+Lonely,Top,Sandbox Gaming,SK Telecom T1,N/A,N/A,5200
+Cult,Top,LGD Gaming,Royal Never Give Up,24.588886165310317,11.861852587835978,5200
+Lies,Top,LGD Gaming,Royal Never Give Up,28.60689475097728,13.970718679649208,5000
+Sword,Top,Griffin,Afreeca Freecs,23.712695697347716,11.927404924088824,4800
+Cuzz,Jungle,SK Telecom T1,Sandbox Gaming,33.27321447971809,11.657258334439502,7200
+XLB,Jungle,Royal Never Give Up,LGD Gaming,36.994534698157,13.150782741623514,7200
+JunJia,Jungle,Edward Gaming,LNG Esports,29.603064818540172,11.712707237092962,7000
+Jiejie,Jungle,Edward Gaming,LNG Esports,33.95084699418061,13.340755738580038,6800
+Leyan,Jungle,Invictus Gaming,JD Gaming,33.48970052664782,15.583891251733524,6800
+Ning,Jungle,Invictus Gaming,JD Gaming,34.222092156422974,14.384740372976124,6600
+Kanavi,Jungle,JD Gaming,Invictus Gaming,39.113471748132355,23.81888129918329,6400
+Peanut,Jungle,LGD Gaming,Royal Never Give Up,26.33706887772045,15.407087138677516,6200
+Dread,Jungle,Afreeca Freecs,Griffin,23.27985044759105,8.960060660628953,6000
+Tarzan,Jungle,Griffin,Afreeca Freecs,30.73008788354979,14.51183576579007,5800
+Spirit,Jungle,Afreeca Freecs,Griffin,27.007059298687633,7.929426958481178,5800
+Xx,Jungle,LNG Esports,Edward Gaming,31.432139471278713,12.974586693559429,5600
+Punch,Jungle,Sandbox Gaming,SK Telecom T1,N/A,N/A,5400
+OnFleek,Jungle,Sandbox Gaming,SK Telecom T1,26.602287947708714,12.51430606781343,5200
+xiaohu,Middle,Royal Never Give Up,LGD Gaming,35.639822182955804,17.303841954202287,8000
+RooKie,Middle,Invictus Gaming,JD Gaming,34.75949035189145,15.782557706895936,7800
+Scout,Middle,Edward Gaming,LNG Esports,31.22097722882809,13.910789764086832,7600
+Faker,Middle,SK Telecom T1,Sandbox Gaming,28.332056307108566,13.025148160114835,7400
+Gori,Middle,SK Telecom T1,Sandbox Gaming,N/A,N/A,7200
+ALL IN,Middle,Afreeca Freecs,Griffin,25.592464416940196,9.78289232383673,7000
+Fly,Middle,Afreeca Freecs,Griffin,25.24239604130198,8.181398443660626,6800
+Maple,Middle,LNG Esports,Edward Gaming,29.07126484736279,12.704621737952206,6800
+Yagao,Middle,JD Gaming,Invictus Gaming,35.89071993054937,20.302207319585495,6600
+Ucal,Middle,Griffin,Afreeca Freecs,30.753005661577028,15.301988027019082,6400
+Naehyun,Middle,Griffin,Afreeca Freecs,33.616893594863335,14.63279357635206,6200
+Yuuki,Middle,LGD Gaming,Royal Never Give Up,30.315728146253193,15.66900310733186,6200
+fenfen,Middle,LGD Gaming,Royal Never Give Up,31.571658986175102,13.317279736193015,6000
+Dove,Middle,Sandbox Gaming,SK Telecom T1,24.80901233918376,12.62050073593711,5800
+FATE,Middle,Sandbox Gaming,SK Telecom T1,N/A,N/A,5600
+Betty,ADC,Royal Never Give Up,LGD Gaming,39.79695285031854,17.761555201339267,8000
+Uzi,ADC,Royal Never Give Up,LGD Gaming,35.37726993952031,20.96559027623029,7800
+Puff,ADC,Invictus Gaming,JD Gaming,35.18705729273781,14.127053883565008,7800
+Teddy,ADC,SK Telecom T1,Sandbox Gaming,35.84329659968474,18.612099296131735,7600
+Mystic,ADC,Afreeca Freecs,Griffin,31.919617106568417,13.107843470751448,7200
+Viper,ADC,Griffin,Afreeca Freecs,34.10372583604292,20.324977358863908,7000
+SS,ADC,Afreeca Freecs,Griffin,30.033548555420943,11.318016541102335,7000
+Kramer,ADC,LGD Gaming,Royal Never Give Up,36.00837354592331,16.149809646795983,6800
+Light,ADC,LNG Esports,Edward Gaming,N/A,N/A,6600
+Asura,ADC,LNG Esports,Edward Gaming,33.53285190650332,14.093333722110824,6400
+LokeN,ADC,JD Gaming,Invictus Gaming,33.98369880410788,22.442578627956006,6400
+Route,ADC,Sandbox Gaming,SK Telecom T1,29.26477072016737,16.1964147068641,6000
+Leo,ADC,Sandbox Gaming,SK Telecom T1,26.280385126735347,14.570509920359772,5800
+Ming,Support,Royal Never Give Up,LGD Gaming,29.2339101242547,9.881804922942539,6000
+Southwind,Support,Invictus Gaming,JD Gaming,29.704288767894155,8.428251730619163,5800
+Baolan,Support,Invictus Gaming,JD Gaming,33.88714673492986,7.98408688627415,5600
+Effort,Support,SK Telecom T1,Sandbox Gaming,21.049465968661877,5.859179257487594,5400
+meiko,Support,Edward Gaming,LNG Esports,27.673027645946632,7.661925937728101,5200
+Jelly,Support,Afreeca Freecs,Griffin,16.883903802737542,3.4021864846315077,4800
+Ben,Support,Afreeca Freecs,Griffin,17.69886498583226,3.4961688739084282,4600
+killua,Support,LGD Gaming,Royal Never Give Up,20.974061882817637,11.604346903256946,4600
+Chance,Support,LGD Gaming,Royal Never Give Up,25.21017311065355,10.343785510863025,4400
+LvMao,Support,JD Gaming,Invictus Gaming,29.758485147910037,14.864300058466156,4400
+Duan,Support,LNG Esports,Edward Gaming,27.059717772137333,7.617637977623265,4200
+Peace,Support,JD Gaming,Invictus Gaming,N/A,N/A,4200
+Irove,Support,Griffin,Afreeca Freecs,22.20820987609725,9.360727734303577,4000
+lwandy,Support,LNG Esports,Edward Gaming,N/A,N/A,4000
+Gorilla,Support,Sandbox Gaming,SK Telecom T1,20.22037745018892,5.748963823402655,3800
+Joker,Support,Sandbox Gaming,SK Telecom T1,17.69976599388103,3.814893675383673,3600
+T1,Team,SK Telecom T1,Sandbox Gaming,N/A,N/A,6000
+Royal Never Give Up,Team,Royal Never Give Up,LGD Gaming,N/A,N/A,5800
+Edward Gaming,Team,Edward Gaming,LNG Esports,N/A,N/A,5400
+Invictus Gaming,Team,Invictus Gaming,JD Gaming,N/A,N/A,5200
+Afreeca Freecs,Team,Afreeca Freecs,Griffin,N/A,N/A,5000
+Griffin,Team,Griffin,Afreeca Freecs,N/A,N/A,4800
+LNG Esports,Team,LNG Esports,Edward Gaming,N/A,N/A,4600
+JD Gaming,Team,JD Gaming,Invictus Gaming,N/A,N/A,4400
+Sandbox Gaming,Team,Sandbox Gaming,SK Telecom T1,N/A,N/A,4000
+LGD Gaming,Team,LGD Gaming,Royal Never Give Up,N/A,N/A,3800

@@ -15,16 +15,16 @@ def CreateExpectedValueFunctionByCol(col, df):
     df['season_weight'] = df['iscurrent'].apply(lambda x: 1.0 if x == 1 else 0.3)
 
     df['position_weight'] = 1
-    pos_avg_weights = GetWeightedFptAverages(df, ['position', 'result'], 'position_weight')
-    grouping_avg_weights = GetWeightedFptAverages(df, [col, 'position', 'result'], 'season_weight')
-    grouping_season_weight_sum = GetWeightSums(df, [col, 'position', 'result'], 'season_weight')
+    pos_avg_weights = GetWeightedFptAverages(df, ['position', 'league', 'result'], 'position_weight')
+    grouping_avg_weights = GetWeightedFptAverages(df, [col, 'position', 'league', 'result'], 'season_weight')
+    grouping_season_weight_sum = GetWeightSums(df, [col, 'position', 'league', 'result'], 'season_weight')
     #print(pos_avg_weights.head(10))
     #print(grouping_avg_weights.head(10))
     #print(grouping_season_weight_sum.head(10))
-    return lambda col_val, position, result: \
-        (averageWeightVal * pos_avg_weights[position,result] + \
-        grouping_season_weight_sum[col_val, position,result] * grouping_avg_weights[col_val, position,result]) /\
-        (averageWeightVal+grouping_season_weight_sum[col_val, position,result])
+    return lambda col_val, position, league, result: \
+        (averageWeightVal * pos_avg_weights[position,league, result] + \
+        grouping_season_weight_sum[col_val, position, league, result] * grouping_avg_weights[col_val, position, league, result]) /\
+        (averageWeightVal+grouping_season_weight_sum[col_val, position, league, result])
 
 
 

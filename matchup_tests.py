@@ -8,7 +8,7 @@ import csv
 df = GetAllRecent()
 
 df['position_weight'] = 1
-pos_avg_weights = GetWeightedFptAverages(df, ['position', 'result'], 'position_weight')
+pos_avg_weights = GetWeightedFptAverages(df, ['position', 'league', 'result'], 'position_weight')
 getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
 getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
@@ -17,18 +17,24 @@ getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
 
 matchups = [
-    ['Dominus Esports', 'Bilibili Gaming'],
-    ['eStar', 'JD Gaming'],
-    ['LNG Esports', 'Funplus Phoenix']
+    ['LGD Gaming', 'Royal Never Give Up'],
+    ['Sandbox Gaming', 'SK Telecom T1'],
+    ['LNG Esports', 'Edward Gaming'],
+    ['Afreeca Freecs', 'Griffin'],
+    ['JD Gaming', 'Invictus Gaming']
 ]
 
 team_dict = {
-    'DMO': 'Dominus Esports',
-    'BLG': 'Bilibili Gaming',
-    'ES': 'eStar',
-    'JDG': 'JD Gaming',
+    'LGD': 'LGD Gaming',
+    'RNG': 'Royal Never Give Up',
+    'SB': 'Sandbox Gaming',
+    'T1': 'SK Telecom T1',
     'LNG': 'LNG Esports',
-    'FPX': 'Funplus Phoenix'
+    'EDG': 'Edward Gaming',
+    'AF': 'Afreeca Freecs',
+    'GRF': 'Griffin',
+    'JDG': 'JD Gaming',
+    'iG': 'Invictus Gaming'
 }
 
 pos_dict = {
@@ -63,7 +69,7 @@ for p in pos:
         try:
             player = dkmap[playerid[1:end]]
         except KeyError:
-            pass
+            continue
         position = pos_dict[row['Position']]
         avg_w = pos_avg_weights[position, 1]
         avg_l = pos_avg_weights[position, 0]

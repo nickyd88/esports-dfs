@@ -4,14 +4,15 @@ import math
 import pickle
 
 # Read & clean historic data & add fantasy points
+# CMD+/ MAS COMMENTS SELECTIONS
 #df2017 = pd.read_csv("data/2017_all_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2018a = pd.read_csv("data/2018_spring_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2018b = pd.read_csv("data/2018_summer_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2019a = pd.read_csv("data/2019_spring_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2019b = pd.read_csv("data/2019_summer_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 dfpre = pd.read_csv("data/df_all_pre2020.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
-df2020a = pd.read_csv("data/2020_spring_current0319.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
-
+df2020a = pd.read_csv("data/2020_spring_current0324.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
+#
 # df_all = pd.concat([dfpre, df2020a], sort=False)
 #
 # numeric_cols = [
@@ -44,22 +45,42 @@ df2020a = pd.read_csv("data/2020_spring_current0319.csv", sep=',', error_bad_lin
 #
 # fpts = []
 # for index, row in df_all.iterrows():
+#     #LPL missing cs, fb, and baron data
+#     if math.isnan(row.teambaronkills):
+#         if row.result == 1:
+#             bar = 1.25
+#         else:
+#             bar = 0.1
+#     else:
+#         bar = row.teambaronkills
+#
+#     if math.isnan(row.fb):
+#         if row.result == 1:
+#             fb = 0.75
+#         else:
+#             fb = 0.25
+#     else:
+#         fb = row.fb
+#
 #     if math.isnan(row.cs):
 #         if row.position == 'Support':
 #             cs = 50
+#         elif row.position == 'Jungle':
+#             cs = 250
 #         else:
-#             cs = 300
+#             cs = 350
 #     else:
 #         cs = row.cs
+#
 #     if row.position == 'Team':
-#         fpts.append(row.teamtowerkills + 3*row.teambaronkills + 2*row.teamdragkills + 2*row.fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
+#         fpts.append(row.teamtowerkills + 3*bar + 2*row.teamdragkills + 2*fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
 #     else:
 #         fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
 # df_all['fpts'] = fpts
 #
-# #df_all.to_csv('data/df_all.csv', index=False)
-#
-#
+# df_all.to_csv('data/df_all.csv', index=False)
+
+
 
 
 
