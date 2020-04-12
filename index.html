@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="/esports-dfs/css/main.css">
 	<head>
-		<title>DFS eSports : League of Legends</title>
+		<title>LoL DFS Research</title>
 		<!-- link to main stylesheet -->
-		<link rel="stylesheet" type="text/css" href="/esports-dfs/css/main.css">
 	</head>
 	<body>
 		<nav>
@@ -18,17 +20,75 @@
 		</nav>
 		<div class="container">
     		<div class="blurb">
-        		<h1>Ongoing work into DFS eSports</h1>
-				<p>This repo will be continuously updated as I build out a DFS eSports tournament model, and include links to data viz as I perform research</p>
-				<h3>
-					<li><a href="/esports-dfs/point_distributions">Average Point Distributions by Position</a></li>
-        			<li><a href="/esports-dfs/top_scorers">Captain Research</a></li>
-	        		<li><a href="/esports-dfs/avg_winners">Average Scores by League</a></li>
-	        		<li><a href="/esports-dfs/pace">Average Points Given Up (Pace)</a></li>
-	        		<li><a href="/esports-dfs/player_performance">Projected Fpts per Player in a Win</a></li>
-				</h3>
+        		<h1>Ongoing LoL DFS Research & Data Viz</h1>
     		</div><!-- /.blurb -->
 		</div><!-- /.container -->
+
+<!-- Page content -->
+<div class="w3-content w3-padding" style="max-width:1564px">
+
+  <!-- Project Section -->
+  <div class="w3-container w3-padding-32" id="projects">
+    <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">DFS Views & Tables</h3>
+  </div>
+
+  <div class="w3-row-padding">
+
+	  <a href="/esports-dfs/point_distributions">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Average Points by Position</div>
+        <img src="/esports-dfs/images/avg_scores.png" alt="House" style="width:100%">
+      </div>
+	</div>
+	  </a>
+
+	  <a href="/esports-dfs/top_scorers">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Top Scoring Positions</div>
+        <img src="/esports-dfs/images/cpt_research.png" alt="House" style="width:100%">
+      </div>
+    </div>
+		  </a>
+
+	  <a href="/esports-dfs/avg_winners">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Average Scores by League</div>
+        <img src="/esports-dfs/images/position_winners.png" alt="House" style="width:100%">
+      </div>
+    </div>
+		  </a>
+
+  </div>
+
+  <div class="w3-row-padding">
+
+	  <a href="/esports-dfs/pace">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Average Points Given Up (Pace)</div>
+        <img src="/esports-dfs/images/pace.png" alt="House" style="width:100%">
+      </div>
+	</div>
+	  </a>
+
+	  <a href="/esports-dfs/player_performance">
+    <div class="w3-col l3 m6 w3-margin-bottom">
+      <div class="w3-display-container">
+        <div class="w3-display-topleft w3-black w3-padding">Projected Fpts per Player in a Win</div>
+        <img src="/esports-dfs/images/avg_player_win.png" alt="House" style="width:100%">
+      </div>
+    </div>
+		  </a>
+
+
+  </div>
+
+</div>
+
+<p></p>
 		<footer>
     		<ul>
         		<li><a href="https://github.com/nickyd88">github.com/nicky88</a></li>
@@ -36,3 +96,4 @@
 		</footer>
 	</body>
 </html>
+
