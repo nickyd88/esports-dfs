@@ -14,25 +14,22 @@ getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
 getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
 starters = getStarters()
-
+starters.append('beishang')
 
 #print(getEVByPlayer('100 Thieves', 'Middle', 0))
 
 
 
 matchups = [
-    ['LGD Gaming', 'Royal Never Give Up'],
-    ['Sandbox Gaming', 'SK Telecom T1'],
-    ['LNG Esports', 'Edward Gaming'],
-    ['Afreeca Freecs', 'Griffin'],
-    ['JD Gaming', 'Invictus Gaming']
+    ['Team WE', 'Top Esports'],
+    ['DragonX', 'SK Telecom T1']
 ]
 
 team_dict = {
-    'T1': 'LGD Gaming',
-    'DRX': 'Royal Never Give Up',
-    'ES': 'Sandbox Gaming',
-    'WE': 'SK Telecom T1'
+    'T1': 'SK Telecom T1',
+    'DRX': 'DragonX',
+    'ES': 'Top Esports',
+    'WE': 'Team WE'
 }
 
 l_dict = {
@@ -81,8 +78,8 @@ for p in pos:
             continue
         position = pos_dict[row['Position']]
         league = l_dict[row['TeamAbbrev']]
-        avg_w = pos_avg_weights[position, 1]
-        avg_l = pos_avg_weights[position, 0]
+        avg_w = pos_avg_weights[position, league, 1]
+        avg_l = pos_avg_weights[position, league, 0]
         team = team_dict[row['TeamAbbrev']]
         salary = row['Salary']
 

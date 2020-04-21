@@ -211,3 +211,58 @@ fig.update_layout(
 )
 fig.show()
 plotly.offline.plot(fig, filename ='player_performance/index.html', auto_open=False)
+
+
+
+
+
+# Current Projections
+
+proj = pd.read_csv('test_proj.csv')
+proj = proj.drop(['AvgIfLoss'], axis=1)
+proj = proj.sort_values(by=['Team', 'Position'])
+
+norm = matplotlib.colors.Normalize(vmin=20, vmax=45, clip=True)
+mapper = cm.ScalarMappable(norm=norm, cmap=cm.get_cmap('RdYlGn'))
+
+dat = [
+        proj['Player'],
+        proj['Position'],
+        proj['Team'],
+        proj['Opponent'],
+        round(proj['AvgIfWin'], 1),
+        proj['Salary']
+    ]
+colors = []
+for col in dat:
+    temp = []
+    for row in col:
+        if type(row) == str or row > 100:
+            temp.append('rgb(239, 243, 255)')
+        else:
+            rgba = mapper.to_rgba(row, bytes=True)
+            rgb = 'rgb('+str(rgba[0])+','+str(rgba[1])+','+str(rgba[2])+')'
+            #print(mapper.to_rgba(item, bytes=True))
+            temp.append(rgb)
+    colors.append(temp)
+
+
+fig = go.Figure(data=[go.Table(
+    header=dict(values=list(proj.columns),
+                align='left'),
+    cells=dict(values=dat,
+               align='left',
+               line_color=colors,
+               fill_color=colors
+               ))
+])
+
+fig.update_layout(
+    title='Projected Points Given Matchup',
+    title_font_size=24,
+    width=1000
+)
+fig.show()
+plotly.offline.plot(fig, filename ='projections/index.html', auto_open=False)
+
+
