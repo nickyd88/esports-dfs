@@ -35,6 +35,7 @@ import pickle
 # df2020a['team'] = df2020a['team'].apply(lambda x:
 #                                                 'JD Gaming' if x.startswith('JD Gaming') else
 #                                                 'LGD Gaming' if x.startswith('LGD Gaming') else
+#                                                 'SK Telecom T1' if x == 'T1' else
 #                                                 x)
 #
 #
@@ -123,7 +124,7 @@ import pickle
 #
 # df_all.to_csv('data/df_all.csv', index=False)
 #
-
+#
 
 
 
@@ -291,7 +292,7 @@ def GetRecentLECLCS():
 
     return df
 
-
+#
 #
 # #Load & calls a data cleaner function to clean LEC (euro) and LCS (NA) data
 # df = GetLECLCS()
@@ -314,6 +315,6 @@ def GetRecentLECLCS():
 # recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
 #                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
 # recent.to_csv('data/last_two_splits_all.csv', index=False)
-
-
+#
+#
 

@@ -21,16 +21,17 @@ starters.append('beishang')
 
 
 matchups = [
-    ['Team WE', 'Top Esports'],
+    ['Team WE', 'eStar'],
     ['DragonX', 'SK Telecom T1']
 ]
 
 team_dict = {
     'T1': 'SK Telecom T1',
     'DRX': 'DragonX',
-    'ES': 'Top Esports',
+    'ES': 'eStar',
     'WE': 'Team WE'
 }
+
 
 l_dict = {
     'ES': 'LPL',
