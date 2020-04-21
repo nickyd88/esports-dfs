@@ -10,8 +10,27 @@ import pickle
 #df2018b = pd.read_csv("data/2018_summer_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2019a = pd.read_csv("data/2019_spring_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
 #df2019b = pd.read_csv("data/2019_summer_final.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
-dfpre = pd.read_csv("data/df_all_pre2020.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
-df2020a = pd.read_csv("data/2020_spring_current0324.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
+# dfpre = pd.read_csv("data/df_all_pre2020.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
+# df2020a = pd.read_csv("data/2020_spring_current0420.csv", sep=',', error_bad_lines=False, index_col=False, dtype='unicode')
+#
+# newcols = {
+#     'kills': 'k',
+#     'deaths': 'd',
+#     'assists': 'a',
+#     'firstblood': 'fb',
+#     'dragons': 'teamdragkills',
+#     'barons': 'teambaronkills',
+#     'towers': 'teamtowerkills'
+# }
+#
+# df2020a = df2020a.rename(columns=newcols)
+# df2020a['position'] = df2020a['position'].apply(lambda x:
+#                                                 'Team' if x == 'team' else
+#                                                 'Support' if x == 'sup' else
+#                                                 'ADC' if x == 'bot' else
+#                                                 'Middle' if x == 'mid' else
+#                                                 'Jungle' if x == 'jng' else
+#                                                 'Top' if x == 'top' else 'na')
 #
 # df_all = pd.concat([dfpre, df2020a], sort=False)
 #
@@ -40,7 +59,7 @@ df2020a = pd.read_csv("data/2020_spring_current0324.csv", sep=',', error_bad_lin
 #
 # cs = []
 # for index, row in df_all.iterrows():
-#     cs.append(row.minionkills + row.monsterkills + row.monsterkillsownjungle + row.monsterkillsenemyjungle)
+#     cs.append(row.minionkills + row.monsterkills)
 # df_all['cs'] = cs
 #
 # fpts = []
@@ -72,14 +91,32 @@ df2020a = pd.read_csv("data/2020_spring_current0324.csv", sep=',', error_bad_lin
 #     else:
 #         cs = row.cs
 #
+#     if row.gamelength > 100:
+#         leng = row.gamelength/60
+#     else:
+#         leng = row.gamelength
+#
+#     if row.position == 'sup':
+#         row.position = 'Support'
+#     elif row.position == 'top':
+#         row.position = 'Top'
+#     elif row.position == 'jng':
+#         row.position = 'Jungle'
+#     elif row.position == 'mid':
+#         row.position = 'Middle'
+#     elif row.position == 'bot':
+#         row.position = 'ADC'
+#     elif row.position == 'team':
+#         row.position = 'Team'
+#
 #     if row.position == 'Team':
-#         fpts.append(row.teamtowerkills + 3*bar + 2*row.teamdragkills + 2*fb + 2*row.result + 2*(1 if row.gamelength < 30 else 0))
+#         fpts.append(row.teamtowerkills + 3*bar + 2*row.teamdragkills + 2*fb + 2*row.result + 2*(1 if leng < 30 else 0))
 #     else:
 #         fpts.append(3*row.k + 2*row.a - 1*row.d + 0.02*cs + 2*(1 if row.k >= 10 or row.a > 10 else 0))
 # df_all['fpts'] = fpts
 #
 # df_all.to_csv('data/df_all.csv', index=False)
-
+#
 
 
 
@@ -271,3 +308,4 @@ def GetRecentLECLCS():
 # recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
 #                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
 # recent.to_csv('data/last_two_splits_all.csv', index=False)
+#
