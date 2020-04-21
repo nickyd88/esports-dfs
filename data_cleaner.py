@@ -32,6 +32,12 @@ import pickle
 #                                                 'Jungle' if x == 'jng' else
 #                                                 'Top' if x == 'top' else 'na')
 #
+# df2020a['team'] = df2020a['team'].apply(lambda x:
+#                                                 'JD Gaming' if x.startswith('JD Gaming') else
+#                                                 'LGD Gaming' if x.startswith('LGD Gaming') else
+#                                                 x)
+#
+#
 # df_all = pd.concat([dfpre, df2020a], sort=False)
 #
 # numeric_cols = [
@@ -308,4 +314,6 @@ def GetRecentLECLCS():
 # recent = recent[['gameid', 'date', 'league', 'split', 'side', 'week', 'side', 'position', 'player', 'team', 'gamelength',
 #                  'result', 'k', 'd', 'a', 'teamkills', 'teamdeaths', 'cs', 'fpts']]
 # recent.to_csv('data/last_two_splits_all.csv', index=False)
-#
+
+
+

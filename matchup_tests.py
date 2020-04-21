@@ -3,6 +3,7 @@ from data_cleaner import GetAllRecent
 from position_model import CreateExpectedValueFunctionByCol
 from agg_functions import GetWeightedFptAverages
 from namemap import GetNameMap
+from starters_reader import getStarters
 import csv
 
 df = GetAllRecent()
@@ -11,6 +12,9 @@ df['position_weight'] = 1
 pos_avg_weights = GetWeightedFptAverages(df, ['position', 'league', 'result'], 'position_weight')
 getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
 getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
+
+starters = getStarters()
+
 
 #print(getEVByPlayer('100 Thieves', 'Middle', 0))
 
@@ -25,16 +29,17 @@ matchups = [
 ]
 
 team_dict = {
-    'LGD': 'LGD Gaming',
-    'RNG': 'Royal Never Give Up',
-    'SB': 'Sandbox Gaming',
-    'T1': 'SK Telecom T1',
-    'LNG': 'LNG Esports',
-    'EDG': 'Edward Gaming',
-    'AF': 'Afreeca Freecs',
-    'GRF': 'Griffin',
-    'JDG': 'JD Gaming',
-    'iG': 'Invictus Gaming'
+    'T1': 'LGD Gaming',
+    'DRX': 'Royal Never Give Up',
+    'ES': 'Sandbox Gaming',
+    'WE': 'SK Telecom T1'
+}
+
+l_dict = {
+    'ES': 'LPL',
+    'WE': 'LPL',
+    'T1': 'LCK',
+    'DRX': 'LCK'
 }
 
 pos_dict = {
@@ -61,6 +66,7 @@ team = dk[dk['Roster Position'] == 'TEAM']
 
 pos = [top, jng, mid, adc, sup, team]
 
+print(starters)
 
 for p in pos:
     for index, row in p.iterrows():
@@ -70,7 +76,11 @@ for p in pos:
             player = dkmap[playerid[1:end]]
         except KeyError:
             continue
+        if player not in starters:
+            print(player+' not a starter')
+            continue
         position = pos_dict[row['Position']]
+        league = l_dict[row['TeamAbbrev']]
         avg_w = pos_avg_weights[position, 1]
         avg_l = pos_avg_weights[position, 0]
         team = team_dict[row['TeamAbbrev']]
@@ -84,8 +94,8 @@ for p in pos:
                     opp = m[0]
 
         try:
-            win = getEVByPlayer(player, position, 1) + getEVByOpTeam(opp, position, 1) - avg_w
-            loss = getEVByPlayer(player, position, 0) + getEVByOpTeam(opp, position, 0) - avg_l
+            win = getEVByPlayer(player, position, league, 1) + getEVByOpTeam(opp, position, league, 1) - avg_w
+            loss = getEVByPlayer(player, position, league, 0) + getEVByOpTeam(opp, position, league, 0) - avg_l
         except KeyError:
             win = 'N/A'
             loss = 'N/A'
