@@ -14,30 +14,30 @@ getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
 getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
 starters = getStarters()
-starters.append('beishang')
+starters.extend(['369', 'Karsa', 'knight', 'JackeyLove'])
 
 #print(getEVByPlayer('100 Thieves', 'Middle', 0))
 
 
 
 matchups = [
-    ['Team WE', 'eStar'],
-    ['DragonX', 'SK Telecom T1']
+    ['Edward Gaming', 'Royal Never Give Up'],
+    ['Top Esports', 'Team WE']
 ]
 
 team_dict = {
-    'T1': 'SK Telecom T1',
-    'DRX': 'DragonX',
-    'ES': 'eStar',
+    'EDG': 'Edward Gaming',
+    'RNG': 'Royal Never Give Up',
+    'TES': 'Top Esports',
     'WE': 'Team WE'
 }
 
 
 l_dict = {
-    'ES': 'LPL',
+    'TES': 'LPL',
     'WE': 'LPL',
-    'T1': 'LCK',
-    'DRX': 'LCK'
+    'EDG': 'LPL',
+    'RNG': 'LPL'
 }
 
 pos_dict = {
@@ -65,7 +65,12 @@ team = dk[dk['Roster Position'] == 'TEAM']
 pos = [top, jng, mid, adc, sup, team]
 
 print(starters)
+temp = []
+for s in starters:
+    temp.append(s.upper())
+starters = temp
 
+print('Starters:')
 for p in pos:
     for index, row in p.iterrows():
         playerid = row['Name + ID']
@@ -74,9 +79,11 @@ for p in pos:
             player = dkmap[playerid[1:end]]
         except KeyError:
             continue
-        if player not in starters:
-            print(player+' not a starter')
+        if player.upper() not in starters:
+            #print(player+' not a starter')
             continue
+        else:
+            print(player)
         position = pos_dict[row['Position']]
         league = l_dict[row['TeamAbbrev']]
         avg_w = pos_avg_weights[position, league, 1]

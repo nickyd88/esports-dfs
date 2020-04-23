@@ -260,7 +260,7 @@ fig = go.Figure(data=[go.Table(
 fig.update_layout(
     title='Projected Points Given Matchup',
     title_font_size=24,
-    width=1000
+    width=1200
 )
 fig.show()
 plotly.offline.plot(fig, filename ='projections/index.html', auto_open=False)
