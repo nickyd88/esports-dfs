@@ -14,30 +14,45 @@ getEVByPlayer = CreateExpectedValueFunctionByCol('player', df)
 getEVByOpTeam = CreateExpectedValueFunctionByCol('opp_team', df)
 
 starters = getStarters()
-starters.extend(['369', 'Karsa', 'knight', 'JackeyLove'])
+#starters.extend(['369', 'Karsa', 'knight', 'JackeyLove'])
 
 #print(getEVByPlayer('100 Thieves', 'Middle', 0))
 
 
 
 matchups = [
-    ['Edward Gaming', 'Royal Never Give Up'],
-    ['Top Esports', 'Team WE']
+    ['G2 Esports', 'MAD Lions'],
+    ['Vitality', 'Schalke 04'],
+    ['Origen', 'SK Gaming'],
+    ['Rogue', 'Excel Esports'],
+    ['Misfits', 'Fnatic']
 ]
 
 team_dict = {
-    'EDG': 'Edward Gaming',
-    'RNG': 'Royal Never Give Up',
-    'TES': 'Top Esports',
-    'WE': 'Team WE'
+    'G2': 'G2 Esports',
+    'MAD': 'MAD Lions',
+    'VIT': 'Vitality',
+    'S04': 'Schalke 04',
+    'OG': 'Origen',
+    'SK': 'SK Gaming',
+    'RGE': 'Rogue',
+    'XL': 'Excel Esports',
+    'MSF': 'Misfits',
+    'FNC': 'Fnatic'
 }
 
 
 l_dict = {
-    'TES': 'LPL',
-    'WE': 'LPL',
-    'EDG': 'LPL',
-    'RNG': 'LPL'
+    'G2': 'LEC',
+    'MAD': 'LEC',
+    'VIT': 'LEC',
+    'S04': 'LEC',
+    'OG': 'LEC',
+    'SK': 'LEC',
+    'RGE': 'LEC',
+    'XL': 'LEC',
+    'MSF': 'LEC',
+    'FNC': 'LEC'
 }
 
 pos_dict = {
